@@ -5,7 +5,7 @@ import connection from '../src/database.js';
 import {
     validUserFactory,
     invalidUserFactory
-} from './factories/signUp.factory.js';
+} from './factories/user.factory.js';
 
 const createdUsers = [];
 
