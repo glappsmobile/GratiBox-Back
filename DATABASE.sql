@@ -1,5 +1,5 @@
 --
--- PostgreSQL database dump
+-- bapgdzgslywwwjQL database dump
 --
 
 -- Dumped from database version 13.4 (Ubuntu 13.4-0ubuntu0.21.04.1)
@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: addresses; Type: TABLE; Schema: public; Owner: postgres
+-- Name: addresses; Type: TABLE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE TABLE public.addresses (
@@ -35,10 +35,10 @@ CREATE TABLE public.addresses (
 );
 
 
-ALTER TABLE public.addresses OWNER TO postgres;
+ALTER TABLE public.addresses OWNER TO bapgdzgslywwwj;
 
 --
--- Name: addresses_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: addresses_id_seq; Type: SEQUENCE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE SEQUENCE public.addresses_id_seq
@@ -50,17 +50,17 @@ CREATE SEQUENCE public.addresses_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.addresses_id_seq OWNER TO postgres;
+ALTER TABLE public.addresses_id_seq OWNER TO bapgdzgslywwwj;
 
 --
--- Name: addresses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: addresses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER SEQUENCE public.addresses_id_seq OWNED BY public.addresses.id;
 
 
 --
--- Name: plans; Type: TABLE; Schema: public; Owner: postgres
+-- Name: plans; Type: TABLE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE TABLE public.plans (
@@ -69,10 +69,10 @@ CREATE TABLE public.plans (
 );
 
 
-ALTER TABLE public.plans OWNER TO postgres;
+ALTER TABLE public.plans OWNER TO bapgdzgslywwwj;
 
 --
--- Name: plans_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: plans_id_seq; Type: SEQUENCE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE SEQUENCE public.plans_id_seq
@@ -84,17 +84,17 @@ CREATE SEQUENCE public.plans_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.plans_id_seq OWNER TO postgres;
+ALTER TABLE public.plans_id_seq OWNER TO bapgdzgslywwwj;
 
 --
--- Name: plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER SEQUENCE public.plans_id_seq OWNED BY public.plans.id;
 
 
 --
--- Name: sessions; Type: TABLE; Schema: public; Owner: postgres
+-- Name: sessions; Type: TABLE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE TABLE public.sessions (
@@ -104,10 +104,10 @@ CREATE TABLE public.sessions (
 );
 
 
-ALTER TABLE public.sessions OWNER TO postgres;
+ALTER TABLE public.sessions OWNER TO bapgdzgslywwwj;
 
 --
--- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE SEQUENCE public.sessions_id_seq
@@ -119,17 +119,17 @@ CREATE SEQUENCE public.sessions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sessions_id_seq OWNER TO postgres;
+ALTER TABLE public.sessions_id_seq OWNER TO bapgdzgslywwwj;
 
 --
--- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER SEQUENCE public.sessions_id_seq OWNED BY public.sessions.id;
 
 
 --
--- Name: states; Type: TABLE; Schema: public; Owner: postgres
+-- Name: states; Type: TABLE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE TABLE public.states (
@@ -139,10 +139,10 @@ CREATE TABLE public.states (
 );
 
 
-ALTER TABLE public.states OWNER TO postgres;
+ALTER TABLE public.states OWNER TO bapgdzgslywwwj;
 
 --
--- Name: states_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: states_id_seq; Type: SEQUENCE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE SEQUENCE public.states_id_seq
@@ -154,17 +154,17 @@ CREATE SEQUENCE public.states_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.states_id_seq OWNER TO postgres;
+ALTER TABLE public.states_id_seq OWNER TO bapgdzgslywwwj;
 
 --
--- Name: states_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: states_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER SEQUENCE public.states_id_seq OWNED BY public.states.id;
 
 
 --
--- Name: subscriptions; Type: TABLE; Schema: public; Owner: postgres
+-- Name: subscriptions; Type: TABLE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE TABLE public.subscriptions (
@@ -180,10 +180,10 @@ CREATE TABLE public.subscriptions (
 );
 
 
-ALTER TABLE public.subscriptions OWNER TO postgres;
+ALTER TABLE public.subscriptions OWNER TO bapgdzgslywwwj;
 
 --
--- Name: subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE SEQUENCE public.subscriptions_id_seq
@@ -195,17 +195,17 @@ CREATE SEQUENCE public.subscriptions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.subscriptions_id_seq OWNER TO postgres;
+ALTER TABLE public.subscriptions_id_seq OWNER TO bapgdzgslywwwj;
 
 --
--- Name: subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER SEQUENCE public.subscriptions_id_seq OWNED BY public.subscriptions.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
+-- Name: users; Type: TABLE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE TABLE public.users (
@@ -217,10 +217,10 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO postgres;
+ALTER TABLE public.users OWNER TO bapgdzgslywwwj;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: bapgdzgslywwwj
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -232,59 +232,59 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO postgres;
+ALTER TABLE public.users_id_seq OWNER TO bapgdzgslywwwj;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: addresses id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: addresses id; Type: DEFAULT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.addresses ALTER COLUMN id SET DEFAULT nextval('public.addresses_id_seq'::regclass);
 
 
 --
--- Name: plans id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: plans id; Type: DEFAULT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.plans ALTER COLUMN id SET DEFAULT nextval('public.plans_id_seq'::regclass);
 
 
 --
--- Name: sessions id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: sessions id; Type: DEFAULT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.sessions_id_seq'::regclass);
 
 
 --
--- Name: states id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: states id; Type: DEFAULT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.states ALTER COLUMN id SET DEFAULT nextval('public.states_id_seq'::regclass);
 
 
 --
--- Name: subscriptions id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: subscriptions id; Type: DEFAULT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.subscriptions ALTER COLUMN id SET DEFAULT nextval('public.subscriptions_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Data for Name: addresses; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: addresses; Type: TABLE DATA; Schema: public; Owner: bapgdzgslywwwj
 --
 
 COPY public.addresses (id, user_id, cep, address, city, state_id, deliver_name) FROM stdin;
@@ -292,7 +292,7 @@ COPY public.addresses (id, user_id, cep, address, city, state_id, deliver_name) 
 
 
 --
--- Data for Name: plans; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: plans; Type: TABLE DATA; Schema: public; Owner: bapgdzgslywwwj
 --
 
 COPY public.plans (id, name) FROM stdin;
@@ -300,7 +300,7 @@ COPY public.plans (id, name) FROM stdin;
 
 
 --
--- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: bapgdzgslywwwj
 --
 
 COPY public.sessions (id, user_id, token) FROM stdin;
@@ -308,7 +308,7 @@ COPY public.sessions (id, user_id, token) FROM stdin;
 
 
 --
--- Data for Name: states; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: states; Type: TABLE DATA; Schema: public; Owner: bapgdzgslywwwj
 --
 
 COPY public.states (id, name, acronym) FROM stdin;
@@ -343,7 +343,7 @@ COPY public.states (id, name, acronym) FROM stdin;
 
 
 --
--- Data for Name: subscriptions; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: subscriptions; Type: TABLE DATA; Schema: public; Owner: bapgdzgslywwwj
 --
 
 COPY public.subscriptions (id, user_id, plan_id, delivery_day, tea, incense, organics, created_at, finished_at) FROM stdin;
@@ -351,7 +351,7 @@ COPY public.subscriptions (id, user_id, plan_id, delivery_day, tea, incense, org
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: bapgdzgslywwwj
 --
 
 COPY public.users (id, name, email, password, is_subscriber) FROM stdin;
@@ -360,49 +360,49 @@ COPY public.users (id, name, email, password, is_subscriber) FROM stdin;
 
 
 --
--- Name: addresses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: addresses_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bapgdzgslywwwj
 --
 
 SELECT pg_catalog.setval('public.addresses_id_seq', 1, false);
 
 
 --
--- Name: plans_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: plans_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bapgdzgslywwwj
 --
 
 SELECT pg_catalog.setval('public.plans_id_seq', 1, false);
 
 
 --
--- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bapgdzgslywwwj
 --
 
 SELECT pg_catalog.setval('public.sessions_id_seq', 1, false);
 
 
 --
--- Name: states_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: states_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bapgdzgslywwwj
 --
 
 SELECT pg_catalog.setval('public.states_id_seq', 1, false);
 
 
 --
--- Name: subscriptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: subscriptions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bapgdzgslywwwj
 --
 
 SELECT pg_catalog.setval('public.subscriptions_id_seq', 1, false);
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: bapgdzgslywwwj
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 1, true);
 
 
 --
--- Name: addresses addresses_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: addresses addresses_pk; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.addresses
@@ -410,7 +410,7 @@ ALTER TABLE ONLY public.addresses
 
 
 --
--- Name: plans plans_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: plans plans_pk; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.plans
@@ -418,7 +418,7 @@ ALTER TABLE ONLY public.plans
 
 
 --
--- Name: sessions sessions_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sessions sessions_pk; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.sessions
@@ -426,7 +426,7 @@ ALTER TABLE ONLY public.sessions
 
 
 --
--- Name: sessions sessions_token_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sessions sessions_token_key; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.sessions
@@ -434,7 +434,7 @@ ALTER TABLE ONLY public.sessions
 
 
 --
--- Name: states states_acronym_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: states states_acronym_key; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.states
@@ -442,7 +442,7 @@ ALTER TABLE ONLY public.states
 
 
 --
--- Name: states states_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: states states_pk; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.states
@@ -450,7 +450,7 @@ ALTER TABLE ONLY public.states
 
 
 --
--- Name: subscriptions subscriptions_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: subscriptions subscriptions_pk; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.subscriptions
@@ -458,7 +458,7 @@ ALTER TABLE ONLY public.subscriptions
 
 
 --
--- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.users
@@ -466,7 +466,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_pk; Type: CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.users
@@ -474,7 +474,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: addresses addresses_fk0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: addresses addresses_fk0; Type: FK CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.addresses
@@ -482,7 +482,7 @@ ALTER TABLE ONLY public.addresses
 
 
 --
--- Name: addresses addresses_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: addresses addresses_fk1; Type: FK CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.addresses
@@ -490,7 +490,7 @@ ALTER TABLE ONLY public.addresses
 
 
 --
--- Name: sessions sessions_fk0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sessions sessions_fk0; Type: FK CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.sessions
@@ -498,7 +498,7 @@ ALTER TABLE ONLY public.sessions
 
 
 --
--- Name: subscriptions subscriptions_fk0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: subscriptions subscriptions_fk0; Type: FK CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.subscriptions
@@ -506,7 +506,7 @@ ALTER TABLE ONLY public.subscriptions
 
 
 --
--- Name: subscriptions subscriptions_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: subscriptions subscriptions_fk1; Type: FK CONSTRAINT; Schema: public; Owner: bapgdzgslywwwj
 --
 
 ALTER TABLE ONLY public.subscriptions
@@ -514,5 +514,5 @@ ALTER TABLE ONLY public.subscriptions
 
 
 --
--- PostgreSQL database dump complete
+-- bapgdzgslywwwjQL database dump complete
 --
