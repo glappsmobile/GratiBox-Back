@@ -94,6 +94,41 @@ ALTER SEQUENCE public.plans_id_seq OWNED BY public.plans.id;
 
 
 --
+-- Name: sessions; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.sessions (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    token text NOT NULL
+);
+
+
+ALTER TABLE public.sessions OWNER TO postgres;
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.sessions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.sessions_id_seq OWNER TO postgres;
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.sessions_id_seq OWNED BY public.sessions.id;
+
+
+--
 -- Name: states; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -221,6 +256,13 @@ ALTER TABLE ONLY public.plans ALTER COLUMN id SET DEFAULT nextval('public.plans_
 
 
 --
+-- Name: sessions id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.sessions_id_seq'::regclass);
+
+
+--
 -- Name: states id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -254,6 +296,14 @@ COPY public.addresses (id, user_id, cep, address, city, state_id, deliver_name) 
 --
 
 COPY public.plans (id, name) FROM stdin;
+\.
+
+
+--
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.sessions (id, user_id, token) FROM stdin;
 \.
 
 
@@ -305,6 +355,7 @@ COPY public.subscriptions (id, user_id, plan_id, delivery_day, tea, incense, org
 --
 
 COPY public.users (id, name, email, password, is_subscriber) FROM stdin;
+1	Glauco Villas Boas	glauco@gmail.com	$2b$10$GO3FWkMeBg6UxWvDpotWk.WV5TAuAC1N7BlRjjMWn.RspSZMK0pgq	f
 \.
 
 
@@ -320,6 +371,13 @@ SELECT pg_catalog.setval('public.addresses_id_seq', 1, false);
 --
 
 SELECT pg_catalog.setval('public.plans_id_seq', 1, false);
+
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.sessions_id_seq', 1, false);
 
 
 --
@@ -340,7 +398,7 @@ SELECT pg_catalog.setval('public.subscriptions_id_seq', 1, false);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+SELECT pg_catalog.setval('public.users_id_seq', 1, true);
 
 
 --
@@ -357,6 +415,22 @@ ALTER TABLE ONLY public.addresses
 
 ALTER TABLE ONLY public.plans
     ADD CONSTRAINT plans_pk PRIMARY KEY (id);
+
+
+--
+-- Name: sessions sessions_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_pk PRIMARY KEY (id);
+
+
+--
+-- Name: sessions sessions_token_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_token_key UNIQUE (token);
 
 
 --
@@ -413,6 +487,14 @@ ALTER TABLE ONLY public.addresses
 
 ALTER TABLE ONLY public.addresses
     ADD CONSTRAINT addresses_fk1 FOREIGN KEY (state_id) REFERENCES public.states(id);
+
+
+--
+-- Name: sessions sessions_fk0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_fk0 FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
 --
