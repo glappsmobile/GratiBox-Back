@@ -31,7 +31,7 @@ CREATE TABLE public.addresses (
     address character varying(255) NOT NULL,
     city character varying(255) NOT NULL,
     state_id integer NOT NULL,
-    deliver_name character varying(255) NOT NULL
+    name character varying(255) NOT NULL
 );
 
 
@@ -94,6 +94,81 @@ ALTER SEQUENCE public.plans_id_seq OWNED BY public.plans.id;
 
 
 --
+-- Name: reviews; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.reviews (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    positive boolean NOT NULL,
+    delivery_date date NOT NULL,
+    late boolean DEFAULT false NOT NULL,
+    disliked boolean DEFAULT false NOT NULL,
+    comment text,
+    review_date timestamp with time zone DEFAULT '2021-11-22 12:30:02.434871-03'::timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.reviews OWNER TO postgres;
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.reviews_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.reviews_id_seq OWNER TO postgres;
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.reviews_id_seq OWNED BY public.reviews.id;
+
+
+--
+-- Name: sessions; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.sessions (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    token text NOT NULL
+);
+
+
+ALTER TABLE public.sessions OWNER TO postgres;
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.sessions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.sessions_id_seq OWNER TO postgres;
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.sessions_id_seq OWNED BY public.sessions.id;
+
+
+--
 -- Name: states; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -136,11 +211,11 @@ CREATE TABLE public.subscriptions (
     id integer NOT NULL,
     user_id integer NOT NULL,
     plan_id integer NOT NULL,
-    delivery_day integer NOT NULL,
+    delivery_day character varying(255) NOT NULL,
     tea boolean DEFAULT false NOT NULL,
     incense boolean DEFAULT false NOT NULL,
     organic boolean DEFAULT false NOT NULL,
-    created_at timestamp with time zone DEFAULT '2021-11-22 01:01:53.509015-03'::timestamp with time zone NOT NULL,
+    created_at timestamp with time zone DEFAULT '2021-11-22 12:30:02.413421-03'::timestamp with time zone NOT NULL,
     finished_at timestamp with time zone
 );
 
@@ -177,8 +252,7 @@ CREATE TABLE public.users (
     id integer NOT NULL,
     name character varying(255) NOT NULL,
     email character varying(255) NOT NULL,
-    password character varying(255) NOT NULL,
-    is_subscriber boolean DEFAULT false
+    password character varying(255) NOT NULL
 );
 
 
@@ -221,6 +295,20 @@ ALTER TABLE ONLY public.plans ALTER COLUMN id SET DEFAULT nextval('public.plans_
 
 
 --
+-- Name: reviews id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.reviews ALTER COLUMN id SET DEFAULT nextval('public.reviews_id_seq'::regclass);
+
+
+--
+-- Name: sessions id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions ALTER COLUMN id SET DEFAULT nextval('public.sessions_id_seq'::regclass);
+
+
+--
 -- Name: states id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -245,7 +333,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: addresses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.addresses (id, user_id, cep, address, city, state_id, deliver_name) FROM stdin;
+COPY public.addresses (id, user_id, cep, address, city, state_id, name) FROM stdin;
 \.
 
 
@@ -256,6 +344,22 @@ COPY public.addresses (id, user_id, cep, address, city, state_id, deliver_name) 
 COPY public.plans (id, name) FROM stdin;
 1	Semanal
 2	Mensal
+\.
+
+
+--
+-- Data for Name: reviews; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.reviews (id, user_id, positive, delivery_date, late, disliked, comment, review_date) FROM stdin;
+\.
+
+
+--
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.sessions (id, user_id, token) FROM stdin;
 \.
 
 
@@ -306,7 +410,7 @@ COPY public.subscriptions (id, user_id, plan_id, delivery_day, tea, incense, org
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.users (id, name, email, password, is_subscriber) FROM stdin;
+COPY public.users (id, name, email, password) FROM stdin;
 \.
 
 
@@ -322,6 +426,20 @@ SELECT pg_catalog.setval('public.addresses_id_seq', 1, false);
 --
 
 SELECT pg_catalog.setval('public.plans_id_seq', 1, false);
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.reviews_id_seq', 1, false);
+
+
+--
+-- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.sessions_id_seq', 1, false);
 
 
 --
@@ -359,6 +477,30 @@ ALTER TABLE ONLY public.addresses
 
 ALTER TABLE ONLY public.plans
     ADD CONSTRAINT plans_pk PRIMARY KEY (id);
+
+
+--
+-- Name: reviews reviews_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.reviews
+    ADD CONSTRAINT reviews_pk PRIMARY KEY (id);
+
+
+--
+-- Name: sessions sessions_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_pk PRIMARY KEY (id);
+
+
+--
+-- Name: sessions sessions_token_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_token_key UNIQUE (token);
 
 
 --
@@ -415,6 +557,22 @@ ALTER TABLE ONLY public.addresses
 
 ALTER TABLE ONLY public.addresses
     ADD CONSTRAINT addresses_fk1 FOREIGN KEY (state_id) REFERENCES public.states(id);
+
+
+--
+-- Name: reviews reviews_fk0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.reviews
+    ADD CONSTRAINT reviews_fk0 FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+--
+-- Name: sessions sessions_fk0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_fk0 FOREIGN KEY (user_id) REFERENCES public.users(id);
 
 
 --
