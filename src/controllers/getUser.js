@@ -95,8 +95,7 @@ const getUser = async (req, res) => {
       },
     });
   } catch (err) {
-    console.log(err);
-    res.sendStatus(200);
+    res.sendStatus(500);
   }
 };
 
