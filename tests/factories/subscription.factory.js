@@ -4,7 +4,7 @@ const validSubscriptionFactory = () => {
   const name = `${faker.name.firstName()} ${faker.name.middleName()} ${faker.name.lastName()}`;
   const address = faker.address.country('Brazil');
   const city = faker.address.country('Brazil');
-  const deliveryDay = faker.datatype.number(2) + 1;
+  const deliveryDay = (faker.datatype.number(29) + 1).toString();
   const incense = faker.datatype.boolean();
   const organic = faker.datatype.boolean();
   const tea = faker.datatype.boolean();

@@ -24,6 +24,8 @@ describe('GET /user', () => {
             .set('Authorization', `Bearer ${validSession.token}`);
         expect(result.status).toEqual(200);
         expect(result.body).toHaveProperty('name');
+        expect(result.body).toHaveProperty('subscription');
+
     });
 
     test('returns 401 with invalid user token', async () => {
