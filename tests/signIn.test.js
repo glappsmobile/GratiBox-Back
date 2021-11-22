@@ -11,6 +11,8 @@ const createdUsers = [];
 
 afterAll(async () => {
     await connection.query(`DELETE FROM sessions;`);
+    await connection.query(`DELETE FROM addresses;`);
+    await connection.query(`DELETE FROM subscriptions;`);
     await connection.query(`DELETE FROM users;`);
     connection.end();
 });
@@ -27,7 +29,6 @@ describe('POST /sign-in', () => {
             });
         expect(result.status).toEqual(200);
         expect(result.body).toHaveProperty('token');
-        expect(result.body).toHaveProperty('name');
     });
 
     test('returns 200 with valid user and password that is already logged in', async () => {
@@ -40,7 +41,6 @@ describe('POST /sign-in', () => {
             });
         expect(result.status).toEqual(200);
         expect(result.body).toHaveProperty('token');
-        expect(result.body).toHaveProperty('name');
     });
 
     test('returns 404 with not registered user', async () => {
@@ -52,9 +52,9 @@ describe('POST /sign-in', () => {
                 password: nonExistentUser.password
             });
         expect(result.status).toEqual(404);
-      });
+    });
 
-      test('returns 401 with existent user, but wrong password', async () => {
+    test('returns 401 with existent user, but wrong password', async () => {
         const wrongPasswordUser = createdUsers[0];
         const result = await supertest(app)
             .post('/sign-in')
@@ -63,16 +63,16 @@ describe('POST /sign-in', () => {
                 password: 'wrongpasswordz'
             });
         expect(result.status).toEqual(401);
-      });
+    });
 
-      test('returns 400 with invalid user', async () => {
+    test('returns 400 with invalid user', async () => {
         const invalidUser = invalidUserFactory();
         const result = await supertest(app)
             .post('/sign-in')
             .send({
                 email: invalidUser.email,
                 password: invalidUser.password
-            });        
+            });
         expect(result.status).toEqual(400);
-      });
+    });
 });

@@ -8,8 +8,10 @@ import {
 } from './factories/session.factory.js';
 
 afterAll(async () => {
-    await connection.query('DELETE FROM sessions');
-    await connection.query('DELETE FROM users');
+    await connection.query(`DELETE FROM sessions;`);
+    await connection.query(`DELETE FROM addresses;`);
+    await connection.query(`DELETE FROM subscriptions;`);
+    await connection.query(`DELETE FROM users;`);
     connection.end();
 });
 

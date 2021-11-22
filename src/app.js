@@ -4,6 +4,7 @@ import cors from 'cors';
 import signUp from './controllers/signUp.js';
 import signIn from './controllers/signIn.js';
 import getUser from './controllers/getUser.js';
+import subscribe from './controllers/subscribe.js';
 import auth from './middlewares/auth.js';
 
 const app = express();
@@ -19,5 +20,7 @@ app.post('/sign-in', signIn);
 app.post('/sign-up', signUp);
 
 app.get('/user', auth, getUser);
+
+app.post('/subscribe', auth, subscribe);
 
 export default app;
