@@ -54,7 +54,6 @@ const signIn = async (req, res) => {
       token,
     });
   } catch (err) {
-    console.log(err);
     return res.sendStatus(500);
   }
 };

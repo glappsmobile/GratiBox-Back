@@ -53,7 +53,6 @@ const getUser = async (req, res) => {
 
     res.send({ ...userData, ...address, ...subscription });
   } catch (err) {
-    console.log(err);
     res.sendStatus(500);
   }
 };
