@@ -37,7 +37,7 @@ const signUp = async (req, res) => {
     );
 
     return res.sendStatus(200);
-  } catch (e) {
+  } catch (err) {
     return res.sendStatus(500);
   }
 };
