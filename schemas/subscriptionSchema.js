@@ -2,7 +2,7 @@ import joi from 'joi';
 
 const subscriptionSchema = joi.object({
   plan: joi.number().required(),
-  deliveryDay: joi.number().required(),
+  deliveryDay: joi.string().required(),
   tea: joi.boolean().required(),
   incense: joi.boolean().required(),
   organic: joi.boolean().required(),
